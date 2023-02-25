@@ -63,7 +63,7 @@ if(form) {
                 //and the number of monkey words is less than the maximum 
                 //and there has been enough shakespearean words added between monkey sounds, add monkey sound
                 if (Math.floor(Math.random() * 100) > 70 && monkeyCount < maxMonkeyCount && addedMonkey < 1){
-                    subText = subText + monkeySounds[Math.floor(Math.random() * monkeySounds.length)] + " "
+                    subText = subText + monkeySounds[Math.floor(Math.random() * monkeySounds.length)] + "&#x1f34c; "
                     //increment the number of monkey sounds added
                     monkeyCount = monkeyCount + 1
                     //reset the wait counter
