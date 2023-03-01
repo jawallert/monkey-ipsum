@@ -45,6 +45,8 @@ if(form) {
         e.preventDefault()
         //get number of paragraphs and then monkey!
         const val = parseInt(numPara.value);
+        //include banana selector
+        const bananas = (document.getElementById("banana").value==="Yes") ? true : false
         let newText = ""
         
         //limit the number of monkey sounds in a paragraph to:
@@ -63,7 +65,17 @@ if(form) {
                 //and the number of monkey words is less than the maximum 
                 //and there has been enough shakespearean words added between monkey sounds, add monkey sound
                 if (Math.floor(Math.random() * 100) > 70 && monkeyCount < maxMonkeyCount && addedMonkey < 1){
-                    subText = subText + monkeySounds[Math.floor(Math.random() * monkeySounds.length)] + "&#x1f34c; "
+                    addSound = monkeySounds[Math.floor(Math.random() * monkeySounds.length)]
+                    //if use wants banana emoji
+                    if (bananas){
+                        addSound = addSound + "&#x1f34c;" //extra banana
+                    //else reroll addSound until its not banana
+                    } else {
+                        while (addSound == "&#x1f34c;"){
+                            addSound = monkeySounds[Math.floor(Math.random() * monkeySounds.length)]
+                        }
+                    }
+                    subText = subText + addSound 
                     //increment the number of monkey sounds added
                     monkeyCount = monkeyCount + 1
                     //reset the wait counter
